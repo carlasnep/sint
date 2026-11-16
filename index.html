@@ -3,281 +3,677 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#8E1C1C">
+  <meta name="theme-color" content="#FAF6EE">
   <title>Sint lijstjes 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
     :root {
-      --rood: #8E1C1C;
-      --rood-donker: #6E1212;
-      --goud: #C4A35A;
-      --goud-licht: #F4E8C8;
-      --creme: #FBF6EA;
-      --kaart: #FFFDF7;
-      --tekst: #2A1810;
-      --tekst-zacht: #5C4638;
-      --lijn: #E6D5B0;
-      --ok: #2F6B3A;
-      --schaduw: 0 8px 24px rgba(42, 24, 16, 0.08);
+      --papier: #FAF6EE;
+      --wit: #FFFFFF;
+      --inkt: #1F1A17;
+      --inkt-zacht: #574C44;
+      --rood: #B3261E;
+      --rood-donker: #8A1C16;
+      --rood-zacht: #FBEDEB;
+      --goud: #B8913F;
+      --goud-licht: #F3E7CC;
+      --lijn: #E9E1D2;
+      --groen: #2E6B3F;
+      --groen-zacht: #E8F2EA;
+      --serif: "DM Serif Display", Georgia, serif;
+      --sans: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+      --veilig-onder: env(safe-area-inset-bottom, 0px);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--creme);
-      color: var(--tekst);
-      font-family: "Nunito", "Segoe UI", sans-serif;
+      background: var(--papier);
+      color: var(--inkt);
+      font-family: var(--sans);
       font-size: 20px;
-      line-height: 1.45;
-      -webkit-text-size-adjust: 100%;
+      line-height: 1.5;
     }
 
-    body {
-      min-height: 100vh;
-      background-image:
-        radial-gradient(circle at top right, rgba(196, 163, 90, 0.18), transparent 36%),
-        linear-gradient(180deg, #f4e6c4 0, var(--creme) 180px);
+    p { margin: 0 0 12px; }
+    .subtitle, .intro, .hint, p { color: var(--inkt-zacht); }
+
+    /* ================= Kop ================= */
+    .lint {
+      height: 10px;
+      background: repeating-linear-gradient(90deg,
+        var(--rood) 0 22px, var(--goud) 22px 26px, var(--rood) 26px 30px, var(--goud) 30px 34px);
     }
 
     .wrap {
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 20px 16px 64px;
+      padding: 0 18px 64px;
     }
 
     header {
-      text-align: center;
-      padding: 12px 8px 8px;
+      padding: 34px 2px 18px;
     }
 
-    .miter {
-      font-size: 42px;
-      line-height: 1;
-      margin-bottom: 4px;
+    .overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--rood);
+    }
+    .overline::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--rood);
     }
 
     h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--rood);
-      margin: 0 0 6px;
-      letter-spacing: -0.02em;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 2.9rem;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--inkt);
+      margin: 0 0 14px;
     }
+    h1 em { font-style: italic; color: var(--rood); }
 
-    .subtitle, .intro, .hint, p {
-      color: var(--tekst-zacht);
+    #greeting {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      color: var(--inkt);
+      margin: 0;
+      min-height: 1.2em;
     }
 
     .intro {
-      margin: 0 auto 20px;
-      max-width: 34em;
-      text-align: center;
+      font-size: 1rem;
+      color: var(--inkt-zacht);
+      margin: 6px 0 26px;
+      padding: 0 2px;
     }
+    .intro strong { color: var(--rood); white-space: nowrap; }
 
-    .gold-line {
-      height: 3px;
-      width: 88px;
-      margin: 10px auto 18px;
-      border-radius: 99px;
-      background: linear-gradient(90deg, transparent, var(--goud), transparent);
-    }
-
-    .card {
-      background: var(--kaart);
-      border: 1px solid var(--lijn);
-      border-radius: 20px;
-      box-shadow: var(--schaduw);
-      padding: 18px;
+    /* ================= Meldingen ================= */
+    .banner {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      border-radius: 14px;
+      padding: 16px 18px;
       margin: 0 0 18px;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.45;
     }
-
-    h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 1.7rem;
-      color: var(--rood);
-      margin: 0 0 6px;
+    .banner::before {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
     }
+    .banner.ok   { background: var(--groen-zacht); color: var(--groen); }
+    .banner.ok::before { content: "✓"; background: var(--groen); }
+    .banner.err  { background: var(--rood-zacht); color: var(--rood-donker); }
+    .banner.err::before { content: "!"; background: var(--rood); }
+    .banner.info { background: var(--goud-licht); color: var(--inkt); }
+    .banner.info::before { content: "i"; background: var(--goud); font-family: Georgia, serif; font-style: italic; }
 
-    h3 {
-      font-size: 1.15rem;
-      margin: 22px 0 10px;
-      color: var(--rood-donker);
-      letter-spacing: 0.02em;
-      text-transform: none;
+    /* Nog geen lijstjes (bv. link werkt niet): melding groot op de pagina */
+    body:has(#intro.hidden) #status { font-size: 1.1rem; padding: 20px; margin-top: 8px; }
+
+    /* Lijstjes geladen: melding zweeft onderin, altijd in beeld */
+    body:has(#intro:not(.hidden)) #status {
+      position: fixed;
+      z-index: 50;
+      left: 12px;
+      right: 12px;
+      bottom: calc(12px + var(--veilig-onder));
+      max-width: 616px;
+      margin: 0 auto;
+      box-shadow: 0 14px 40px rgba(31, 26, 23, .25);
+      animation: omhoog .25s ease-out;
+    }
+    body:has(#intro:not(.hidden)):has(#status:not(.hidden)) .wrap { padding-bottom: 220px; }
+    @keyframes omhoog { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* ================= Namen-balk ================= */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin: 0 -18px 22px;
+      padding: 12px 18px;
+      background: rgba(250, 246, 238, .95);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--lijn);
+    }
+    .nav-bar:has(#nav.hidden) { display: none; }
+
+    .nav-label {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--inkt-zacht);
     }
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin: 0 0 20px;
+      flex-wrap: nowrap;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+      padding: 2px;
+      margin: 0 -2px;
+      -webkit-mask-image: linear-gradient(90deg, #000 86%, transparent);
+      mask-image: linear-gradient(90deg, #000 86%, transparent);
     }
-
-    .nav a, button, .btn {
-      font-family: inherit;
-      font-size: 1.15rem;
-      font-weight: 800;
-      border: 0;
-      border-radius: 14px;
-      min-height: 56px;
-      padding: 14px 18px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    .nav::-webkit-scrollbar { display: none; }
+    @media (min-width: 600px) {
+      .nav { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; }
     }
 
     .nav a {
-      background: var(--goud-licht);
-      color: var(--rood-donker);
-      border: 2px solid var(--goud);
-      flex: 1 1 140px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 50px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--inkt);
+      text-decoration: none;
+      background: var(--wit);
+      border: 1.5px solid var(--lijn);
+      box-shadow: 0 1px 2px rgba(31, 26, 23, .06);
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .nav a:hover, .nav a:active { background: var(--inkt); border-color: var(--inkt); color: #fff; }
+
+    /* ================= Een lijstje ================= */
+    .card {
+      position: relative;
+      background: var(--wit);
+      border-radius: 18px;
+      box-shadow: 0 1px 2px rgba(31, 26, 23, .05), 0 12px 32px rgba(31, 26, 23, .07);
+      padding: 26px 20px 12px;
+      margin: 0 0 26px;
+      scroll-margin-top: 120px;
+      counter-reset: wens;
     }
 
-    button, .btn {
-      width: 100%;
-      color: #fff;
+    /* papier-randje: alsof het lijstje van een blok is gescheurd */
+    #lists .card::before {
+      content: "";
+      position: absolute;
+      left: 18px; right: 18px; top: 0;
+      height: 6px;
+      border-radius: 0 0 6px 6px;
       background: var(--rood);
-      box-shadow: 0 4px 0 var(--rood-donker);
     }
 
-    button:active, .btn:active { transform: translateY(2px); box-shadow: none; }
-
-    button:disabled, .btn[disabled] {
-      opacity: 0.55;
-      cursor: default;
-      box-shadow: none;
+    h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 1.15;
+      color: var(--inkt);
+      margin: 6px 0 8px;
     }
 
-    .btn-ghost, button.btn-ghost {
-      background: #fff;
-      color: var(--rood);
-      border: 2px solid var(--rood);
-      box-shadow: none;
+    #lists .card > h2 {
+      padding-bottom: 14px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid var(--inkt);
     }
 
+    /* Categorie: Algemeen / Boeken / LP's */
+    h3 {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--goud);
+      margin: 22px 0 0;
+      padding-bottom: 6px;
+    }
+
+    /* ================= Een wens: een regel op het lijstje ================= */
     .wish {
+      position: relative;
+      padding: 18px 0 18px 50px;
       border-top: 1px solid var(--lijn);
-      padding: 16px 0;
+      counter-increment: wens;
     }
+    #lists .card > h2 + .wish, h3 + .wish { border-top: 0; }
 
-    .wish:first-of-type { border-top: 0; padding-top: 4px; }
+    /* nummer voor elke wens, zoals op een echt lijstje */
+    .wish::before {
+      content: counter(wens);
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--rood);
+      background: var(--rood-zacht);
+    }
 
     .wish-title {
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--tekst);
-      margin: 0 0 6px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      color: var(--inkt);
+      margin: 4px 0 6px;
+      overflow-wrap: anywhere;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: var(--inkt-zacht);
+      margin: 0 0 8px;
+      overflow-wrap: anywhere;
     }
 
     .wish a {
-      color: var(--rood);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 48px;
       font-weight: 700;
-      word-break: break-word;
+      font-size: 1rem;
+      color: var(--rood);
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
     }
+    .wish a::after { content: "↗"; text-decoration: none; display: inline-block; }
+    .wish p:has(> a) { margin: -6px 0 6px; }
 
-    .note, .status-line {
-      font-size: 0.95rem;
-      color: var(--tekst-zacht);
-      margin: 0 0 10px;
+    /* ---------- Afgestreept: iemand geeft dit al ---------- */
+    .wish:has(.claimed)::before {
+      content: "✓";
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      background: var(--groen);
     }
+    .wish:has(.claimed) .wish-title {
+      color: #8A7F76;
+      text-decoration: line-through;
+      text-decoration-color: var(--rood);
+      text-decoration-thickness: 2px;
+    }
+    .wish:has(.claimed) .note,
+    .wish:has(.claimed) p:has(> a) { display: none; }
+
+    /* Wie het koopt blijft geheim: die regel tonen we niet */
+    .claimed .status-line { display: none; }
 
     .claimed {
-      background: #f3eee0;
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 2px;
     }
+    .claimed::before {
+      content: "✓ Al afgestreept";
+      align-self: flex-start;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--groen);
+      background: var(--groen-zacht);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+    /* Heb jij hem afgestreept? Dan zie je dat wel (en kun je hem vrijgeven) */
+    .claimed:has(.btn-ghost)::before {
+      content: "✓ Jij geeft dit cadeau";
+      color: var(--rood-donker);
+      background: var(--goud-licht);
+    }
+    .wish:has(.btn-ghost)::before { background: var(--goud); }
+    .wish:has(.btn-ghost) .wish-title { color: var(--inkt-zacht); }
 
-    .claimed strong { color: var(--rood-donker); }
+    /* ================= Knoppen ================= */
+    button, .btn {
+      font-family: var(--sans);
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 100%;
+      min-height: 56px;
+      padding: 14px 20px;
+      margin-top: 6px;
+      border: 0;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--rood);
+      box-shadow: 0 2px 0 var(--rood-donker);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      text-decoration: none;
+      transition: background .15s, transform .08s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button:hover { background: var(--rood-donker); }
+    button:active, .btn:active { transform: translateY(2px); box-shadow: none; }
+
+    /* Even bewaren… */
+    button:disabled, .btn[disabled] {
+      cursor: progress;
+      color: var(--inkt);
+      background: var(--goud-licht);
+      box-shadow: none;
+      transform: none;
+    }
+    button:disabled::before, .btn[disabled]::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 3px solid rgba(179, 38, 30, .25);
+      border-top-color: var(--rood);
+      animation: draai .8s linear infinite;
+    }
+    @keyframes draai { to { transform: rotate(360deg); } }
+
+    .btn-ghost, button.btn-ghost {
+      margin-top: 0;
+      min-height: 52px;
+      font-size: 1rem;
+      background: transparent;
+      color: var(--inkt-zacht);
+      border: 1.5px solid var(--lijn);
+      box-shadow: none;
+    }
+    button.btn-ghost:hover { background: var(--papier); color: var(--inkt); }
+
+    :focus-visible { outline: 3px solid var(--goud); outline-offset: 3px; }
 
     .empty {
-      color: var(--tekst-zacht);
+      font-size: 1rem;
       font-style: italic;
+      color: var(--inkt-zacht);
+      padding: 16px 0 8px;
+      margin: 0;
     }
+    #lists > .empty {
+      background: var(--wit);
+      border-radius: 18px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    /* ================= Eigen lijstje aanvullen ================= */
+    #add-card {
+      margin-top: 40px;
+      padding: 28px 20px 24px;
+      background: var(--wit);
+      border: 2px dashed var(--goud);
+      box-shadow: none;
+    }
+    #add-card .plus {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--rood);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    #add-card .plus svg { width: 26px; height: 26px; }
+    #add-card h2 { margin-top: 0; }
+    #add-card .hint { font-size: 1rem; margin-bottom: 4px; }
 
     label {
       display: block;
-      font-weight: 800;
-      margin: 16px 0 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--inkt);
+      margin: 20px 0 8px;
     }
+    label .optioneel { font-weight: 400; color: var(--inkt-zacht); }
 
     input, select, textarea {
-      font-family: inherit;
+      font-family: var(--sans);
       font-size: 1.1rem;
       width: 100%;
       min-height: 56px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 2px solid var(--lijn);
-      background: #fff;
-      color: var(--tekst);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #CFC4B2;
+      background: var(--papier);
+      color: var(--inkt);
+      -webkit-appearance: none;
+      appearance: none;
     }
-
+    input::placeholder, textarea::placeholder { color: #857A70; opacity: 1; }
+    select {
+      padding-right: 48px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F1A17' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 22px;
+    }
     input:focus, select:focus, textarea:focus {
       outline: none;
-      border-color: var(--goud);
-      box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.35);
+      background-color: var(--wit);
+      border-color: var(--rood);
+      box-shadow: 0 0 0 4px rgba(179, 38, 30, .12);
     }
+    textarea { min-height: 100px; resize: vertical; }
 
-    textarea { min-height: 88px; resize: vertical; }
 
-    .banner {
-      border-radius: 16px;
-      padding: 14px 16px;
-      margin: 0 0 16px;
+    /* ================= AFVINKLIJST: één regel per wens, rondje = afvinken ================= */
+    .wish {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      column-gap: 8px;
+      align-items: start;
+      padding: 12px 0 12px 0;
+      margin: 0 0 0 -8px;
+      border-top: 1px solid var(--lijn);
+      counter-increment: none;
+    }
+    #lists .card > h2 + .wish, h3 + .wish { border-top: 0; }
+    .wish > * { grid-column: 2; min-width: 0; }
+
+    .wish-title { margin: 0; font-size: 1.05rem; font-weight: 400; line-height: 1.35; color: var(--inkt); }
+    .note { margin: 2px 0 0; font-size: 0.95rem; line-height: 1.3; color: var(--inkt-zacht); }
+    .wish p:has(> a) { margin: 0; }
+    .wish a { min-height: 36px; font-size: 0.95rem; }
+
+    /* geen nummers meer; ::before wordt alleen het vinkje van een ander */
+    .wish::before { display: none; }
+
+    /* --- Het rondje is de knop "Ik koop dit" --- */
+    .wish > button,
+    .claimed .btn-ghost {
+      grid-column: 1;
+      grid-row: 1 / span 4;
+      justify-self: center;
+      width: 48px;
+      height: 48px;
+      min-height: 48px;
+      margin: -11px 0 0;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: none;
+      font-size: 0;          /* tekst blijft voor voorleessoftware, je ziet het rondje */
+      color: transparent;
+    }
+    .wish > button::after,
+    .claimed .btn-ghost::after {
+      content: "";
+      width: 26px;
+      height: 26px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 2px solid #B3A797;
+      background: var(--wit);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
       font-weight: 700;
+      color: #fff;
+    }
+    .wish > button:hover { background: transparent; }
+    .wish > button:hover::after { border-color: var(--rood); background: var(--rood-zacht); }
+    .wish > button:active { transform: scale(.9); }
+
+    /* Even bewaren: draaiend rondje + tekst achter de wens */
+    .wish > button:disabled,
+    .claimed .btn-ghost:disabled { background: transparent; }
+    .wish > button:disabled::after,
+    .claimed .btn-ghost:disabled::after { display: none; }
+    .wish:has(button:disabled) .wish-title::after {
+      content: "  · even bewaren…";
+      font-style: italic;
+      color: var(--inkt-zacht);
     }
 
-    .banner.ok { background: #e4f0e6; color: var(--ok); }
-    .banner.err { background: #f8e6e4; color: var(--rood-donker); }
-    .banner.info { background: var(--goud-licht); color: var(--rood-donker); }
+    /* --- Afgevinkt door iemand anders: vinkje, doorgestreept, geen naam --- */
+    .wish:has(.claimed)::before {
+      display: flex;
+      position: static;
+      grid-column: 1;
+      grid-row: 1 / span 4;
+      justify-self: center;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      content: "✓";
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      background: #B3A797;
+    }
+    .wish:has(.claimed) .wish-title {
+      color: #8A7F76;
+      text-decoration: line-through;
+      text-decoration-color: var(--rood);
+      text-decoration-thickness: 1.5px;
+    }
+    .claimed { display: contents; }
+    .claimed::before { content: none; }
+    .claimed .status-line { display: none; }
+
+    /* --- Afgevinkt door jou: rood vinkje, tik nog eens om vrij te geven --- */
+    .wish:has(.btn-ghost)::before { display: none; }
+    .claimed .btn-ghost::after { content: "✓"; border: 0; background: var(--rood); }
+    .claimed:has(.btn-ghost)::before {
+      content: "Jij koopt dit · tik op het vinkje om het vrij te geven";
+      grid-column: 2;
+      margin-top: 2px;
+      padding: 0;
+      background: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--rood);
+    }
 
     .center { text-align: center; }
-
     .hidden { display: none !important; }
 
     footer {
+      margin-top: 36px;
       text-align: center;
-      color: var(--tekst-zacht);
-      margin-top: 28px;
-      font-size: 0.95rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--inkt-zacht);
     }
 
     @media (min-width: 600px) {
       html, body { font-size: 21px; }
-      .wrap { padding-top: 32px; }
+      header { padding-top: 48px; }
+      h1 { font-size: 3.4rem; }
+      .card { padding: 30px 28px 14px; }
+      #add-card { padding: 32px 28px 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
+  <div class="lint" aria-hidden="true"></div>
   <div class="wrap">
     <header>
-      <div class="miter" aria-hidden="true">❧</div>
-      <h1>Sint lijstjes 2026</h1>
-      <div class="gold-line"></div>
+      <p class="overline">Pakjesavond · 5 december</p>
+      <h1>Sint lijstjes <em>2026</em></h1>
       <p id="greeting" class="subtitle"></p>
     </header>
 
-    <div id="status" class="banner info hidden" role="status" aria-live="polite"></div>
-
     <p id="intro" class="intro hidden">
       Hier zie je de lijstjes van de anderen. Jouw eigen lijstje zie je niet — dat blijft een verrassing.
-      Tik op <strong>Ik koop dit</strong> als je iets wilt geven, dan weten de anderen het ook.
+      Wil je iets geven? Tik op het <strong>rondje</strong> ervoor. Dan wordt het afgevinkt en weten de anderen het ook.
     </p>
 
-    <nav id="nav" class="nav hidden" aria-label="Lijstjes"></nav>
+    <div id="status" class="banner info hidden" role="status" aria-live="polite"></div>
+
+    <div class="nav-bar">
+      <p class="nav-label">Lijstje van</p>
+      <nav id="nav" class="nav hidden" aria-label="Lijstjes"></nav>
+    </div>
     <div id="lists"></div>
 
     <section id="add-card" class="card hidden">
+      <div class="plus" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      </div>
       <h2>Iets op jouw lijstje zetten</h2>
       <p class="hint">De anderen zien het daarna, jij zelf niet.</p>
       <form id="add-form">
@@ -291,13 +687,13 @@
           <option value="LP's">LP's</option>
         </select>
 
-        <label for="wish-link">Link (niet verplicht)</label>
+        <label for="wish-link">Link <span class="optioneel">(niet verplicht)</span></label>
         <input id="wish-link" name="link" type="url" inputmode="url" autocomplete="off" placeholder="https://">
 
-        <label for="wish-note">Opmerking (niet verplicht)</label>
+        <label for="wish-note">Opmerking <span class="optioneel">(niet verplicht)</span></label>
         <textarea id="wish-note" name="opmerking" maxlength="300" placeholder="Bijvoorbeeld: maat M, of de kleur blauw"></textarea>
 
-        <div style="height:16px"></div>
+        <div style="height:20px"></div>
         <button type="submit" id="add-btn">Zet op mijn lijstje</button>
       </form>
     </section>
