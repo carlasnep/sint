@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8E1C1C">
+  <title>Sint lijstjes 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rood: #8E1C1C;
+      --rood-donker: #6E1212;
+      --goud: #C4A35A;
+      --goud-licht: #F4E8C8;
+      --creme: #FBF6EA;
+      --kaart: #FFFDF7;
+      --tekst: #2A1810;
+      --tekst-zacht: #5C4638;
+      --lijn: #E6D5B0;
+      --ok: #2F6B3A;
+      --schaduw: 0 8px 24px rgba(42, 24, 16, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--creme);
+      color: var(--tekst);
+      font-family: "Nunito", "Segoe UI", sans-serif;
+      font-size: 20px;
+      line-height: 1.45;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at top right, rgba(196, 163, 90, 0.18), transparent 36%),
+        linear-gradient(180deg, #f4e6c4 0, var(--creme) 180px);
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+    }
+
+    header {
+      text-align: center;
+      padding: 12px 8px 8px;
+    }
+
+    .miter {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--rood);
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle, .intro, .hint, p {
+      color: var(--tekst-zacht);
+    }
+
+    .intro {
+      margin: 0 auto 20px;
+      max-width: 34em;
+      text-align: center;
+    }
+
+    .gold-line {
+      height: 3px;
+      width: 88px;
+      margin: 10px auto 18px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, transparent, var(--goud), transparent);
+    }
+
+    .card {
+      background: var(--kaart);
+      border: 1px solid var(--lijn);
+      border-radius: 20px;
+      box-shadow: var(--schaduw);
+      padding: 18px;
+      margin: 0 0 18px;
+    }
+
+    h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.7rem;
+      color: var(--rood);
+      margin: 0 0 6px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin: 22px 0 10px;
+      color: var(--rood-donker);
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 0 0 20px;
+    }
+
+    .nav a, button, .btn {
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 800;
+      border: 0;
+      border-radius: 14px;
+      min-height: 56px;
+      padding: 14px 18px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .nav a {
+      background: var(--goud-licht);
+      color: var(--rood-donker);
+      border: 2px solid var(--goud);
+      flex: 1 1 140px;
+    }
+
+    button, .btn {
+      width: 100%;
+      color: #fff;
+      background: var(--rood);
+      box-shadow: 0 4px 0 var(--rood-donker);
+    }
+
+    button:active, .btn:active { transform: translateY(2px); box-shadow: none; }
+
+    button:disabled, .btn[disabled] {
+      opacity: 0.55;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .btn-ghost, button.btn-ghost {
+      background: #fff;
+      color: var(--rood);
+      border: 2px solid var(--rood);
+      box-shadow: none;
+    }
+
+    .wish {
+      border-top: 1px solid var(--lijn);
+      padding: 16px 0;
+    }
+
+    .wish:first-of-type { border-top: 0; padding-top: 4px; }
+
+    .wish-title {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--tekst);
+      margin: 0 0 6px;
+    }
+
+    .wish a {
+      color: var(--rood);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .note, .status-line {
+      font-size: 0.95rem;
+      color: var(--tekst-zacht);
+      margin: 0 0 10px;
+    }
+
+    .claimed {
+      background: #f3eee0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+
+    .claimed strong { color: var(--rood-donker); }
+
+    .empty {
+      color: var(--tekst-zacht);
+      font-style: italic;
+    }
+
+    label {
+      display: block;
+      font-weight: 800;
+      margin: 16px 0 8px;
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+      font-size: 1.1rem;
+      width: 100%;
+      min-height: 56px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 2px solid var(--lijn);
+      background: #fff;
+      color: var(--tekst);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--goud);
+      box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.35);
+    }
+
+    textarea { min-height: 88px; resize: vertical; }
+
+    .banner {
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin: 0 0 16px;
+      font-weight: 700;
+    }
+
+    .banner.ok { background: #e4f0e6; color: var(--ok); }
+    .banner.err { background: #f8e6e4; color: var(--rood-donker); }
+    .banner.info { background: var(--goud-licht); color: var(--rood-donker); }
+
+    .center { text-align: center; }
+
+    .hidden { display: none !important; }
+
+    footer {
+      text-align: center;
+      color: var(--tekst-zacht);
+      margin-top: 28px;
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 600px) {
+      html, body { font-size: 21px; }
+      .wrap { padding-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="miter" aria-hidden="true">❧</div>
+      <h1>Sint lijstjes 2026</h1>
+      <div class="gold-line"></div>
+      <p id="greeting" class="subtitle"></p>
+    </header>
+
+    <div id="status" class="banner info hidden" role="status" aria-live="polite"></div>
+
+    <p id="intro" class="intro hidden">
+      Hier zie je de lijstjes van de anderen. Jouw eigen lijstje zie je niet — dat blijft een verrassing.
+      Tik op <strong>Ik koop dit</strong> als je iets wilt geven, dan weten de anderen het ook.
+    </p>
+
+    <nav id="nav" class="nav hidden" aria-label="Lijstjes"></nav>
+    <div id="lists"></div>
+
+    <section id="add-card" class="card hidden">
+      <h2>Iets op jouw lijstje zetten</h2>
+      <p class="hint">De anderen zien het daarna, jij zelf niet.</p>
+      <form id="add-form">
+        <label for="wish-text">Wat wil je graag?</label>
+        <input id="wish-text" name="wens" type="text" maxlength="300" autocomplete="off" required placeholder="Bijvoorbeeld: warme sjaal">
+
+        <label for="wish-cat">Soort cadeau</label>
+        <select id="wish-cat" name="categorie">
+          <option value="Algemeen">Algemeen</option>
+          <option value="Boeken">Boeken</option>
+          <option value="LP's">LP's</option>
+        </select>
+
+        <label for="wish-link">Link (niet verplicht)</label>
+        <input id="wish-link" name="link" type="url" inputmode="url" autocomplete="off" placeholder="https://">
+
+        <label for="wish-note">Opmerking (niet verplicht)</label>
+        <textarea id="wish-note" name="opmerking" maxlength="300" placeholder="Bijvoorbeeld: maat M, of de kleur blauw"></textarea>
+
+        <div style="height:16px"></div>
+        <button type="submit" id="add-btn">Zet op mijn lijstje</button>
+      </form>
+    </section>
+
+    <footer>Met een groet van de Sint</footer>
+  </div>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbzzWKVTZjdUTVmKwqYsGacS71lv5vCedFB8BwgWNYmbUHncoMRsUYjfdFFKzSL2TriQ/exec";
+    const TOKEN = (new URLSearchParams(window.location.search).get("t") || "").trim();
+
+    const els = {
+      greeting: document.getElementById("greeting"),
+      intro: document.getElementById("intro"),
+      nav: document.getElementById("nav"),
+      lists: document.getElementById("lists"),
+      addCard: document.getElementById("add-card"),
+      addForm: document.getElementById("add-form"),
+      addBtn: document.getElementById("add-btn"),
+      status: document.getElementById("status")
+    };
+
+    function showStatus(kind, message) {
+      els.status.className = "banner " + kind;
+      els.status.textContent = message;
+      els.status.classList.remove("hidden");
+    }
+
+    function clearStatus() {
+      els.status.classList.add("hidden");
+      els.status.textContent = "";
+    }
+
+    function escapeText(value) {
+      const node = document.createElement("div");
+      node.textContent = value == null ? "" : String(value);
+      return node.textContent;
+    }
+
+    function isSafeUrl(url) {
+      if (!url) return false;
+      try {
+        const parsed = new URL(String(url), "https://example.invalid");
+        return parsed.protocol === "http:" || parsed.protocol === "https:";
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function parseApiResponse(res) {
+      return res.text().then(function (text) {
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status);
+        }
+        try {
+          return JSON.parse(text);
+        } catch (err) {
+          throw new Error("Ongeldig antwoord");
+        }
+      });
+    }
+
+    function api(name, args) {
+      args = args || [];
+      if (name === "getData") {
+        const url = API_URL
+          + "?action=getData"
+          + "&t=" + encodeURIComponent(args[0] || "")
+          + "&_=" + Date.now();
+        return fetch(url, {
+          method: "GET",
+          credentials: "omit",
+          redirect: "follow"
+        }).then(parseApiResponse);
+      }
+
+      const body = { action: name, t: args[0] };
+      if (name === "claim" || name === "unclaim") {
+        body.id = args[1];
+      } else if (name === "addWish") {
+        body.text = args[1];
+        body.link = args[2];
+        body.categorie = args[3];
+        body.opmerking = args[4];
+      } else {
+        return Promise.reject(new Error("Onbekende actie."));
+      }
+
+      return fetch(API_URL, {
+        method: "POST",
+        credentials: "omit",
+        redirect: "follow",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(body)
+      }).then(parseApiResponse);
+    }
+
+    function setBusy(button, busy, label) {
+      if (!button) return;
+      button.disabled = !!busy;
+      if (label) button.textContent = label;
+    }
+
+    function render(data) {
+      els.greeting.textContent = "Hoi " + data.ik + ",";
+      els.intro.classList.remove("hidden");
+      els.addCard.classList.remove("hidden");
+      els.nav.innerHTML = "";
+      els.lists.innerHTML = "";
+
+      if (!data.lijsten || !data.lijsten.length) {
+        els.nav.classList.add("hidden");
+        const empty = document.createElement("p");
+        empty.className = "center empty";
+        empty.textContent = "Er staan nog geen lijstjes van de anderen klaar.";
+        els.lists.appendChild(empty);
+        return;
+      }
+
+      els.nav.classList.remove("hidden");
+      data.lijsten.forEach(function (lijst) {
+        const jump = document.createElement("a");
+        jump.href = "#lijst-" + lijst.naam;
+        jump.textContent = lijst.naam;
+        els.nav.appendChild(jump);
+        els.lists.appendChild(renderList(lijst));
+      });
+    }
+
+    function renderList(lijst) {
+      const card = document.createElement("section");
+      card.className = "card";
+      card.id = "lijst-" + lijst.naam;
+
+      const title = document.createElement("h2");
+      title.textContent = "Het lijstje van " + lijst.naam;
+      card.appendChild(title);
+
+      if (!lijst.wensen || !lijst.wensen.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = lijst.naam + " heeft nog niks op het lijstje gezet.";
+        card.appendChild(empty);
+        return card;
+      }
+
+      const groups = {};
+      const order = ["Algemeen", "Boeken", "LP's"];
+      lijst.wensen.forEach(function (w) {
+        const cat = order.indexOf(w.categorie) === -1 ? "Algemeen" : w.categorie;
+        if (!groups[cat]) groups[cat] = [];
+        groups[cat].push(w);
+      });
+
+      const usedCats = order.filter(function (cat) { return groups[cat] && groups[cat].length; });
+      usedCats.forEach(function (cat) {
+        if (usedCats.length > 1) {
+          const heading = document.createElement("h3");
+          heading.textContent = cat;
+          card.appendChild(heading);
+        }
+        groups[cat].forEach(function (wish) {
+          card.appendChild(renderWish(wish, lijst.naam));
+        });
+      });
+
+      return card;
+    }
+
+    function renderWish(wish, ownerName) {
+      const wrap = document.createElement("article");
+      wrap.className = "wish";
+      wrap.dataset.id = wish.id;
+
+      const title = document.createElement("p");
+      title.className = "wish-title";
+      title.textContent = wish.wens;
+      wrap.appendChild(title);
+
+      if (wish.opmerking) {
+        const note = document.createElement("p");
+        note.className = "note";
+        note.textContent = wish.opmerking;
+        wrap.appendChild(note);
+      }
+
+      if (isSafeUrl(wish.link)) {
+        const linkP = document.createElement("p");
+        const link = document.createElement("a");
+        link.href = wish.link;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Bekijk dit cadeau";
+        linkP.appendChild(link);
+        wrap.appendChild(linkP);
+      }
+
+      if (wish.gekochtDoor) {
+        wrap.appendChild(renderClaimed(wish, ownerName));
+      } else {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = "Ik koop dit";
+        btn.addEventListener("click", function () {
+          onClaim(btn, wish, ownerName, wrap);
+        });
+        wrap.appendChild(btn);
+      }
+
+      return wrap;
+    }
+
+    function renderClaimed(wish, ownerName) {
+      const box = document.createElement("div");
+      box.className = "claimed";
+      const line = document.createElement("p");
+      line.className = "status-line";
+      const who = document.createElement("strong");
+      who.textContent = "Gekocht door " + wish.gekochtDoor;
+      line.appendChild(who);
+      if (wish.gekochtOp) {
+        line.appendChild(document.createTextNode(" · " + wish.gekochtOp));
+      }
+      box.appendChild(line);
+
+      if (wish.gekochtDoorMij) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn-ghost";
+        btn.textContent = "Toch niet, ik geef het vrij";
+        btn.addEventListener("click", function () {
+          onUnclaim(btn, wish, ownerName, box.parentNode);
+        });
+        box.appendChild(btn);
+      }
+      return box;
+    }
+
+    function replaceWish(wrap, wish, ownerName) {
+      const next = renderWish(wish, ownerName);
+      wrap.replaceWith(next);
+    }
+
+    function onClaim(button, wish, ownerName, wrap) {
+      setBusy(button, true, "Even bewaren…");
+      api("claim", [TOKEN, wish.id])
+        .then(function (res) {
+          if (!res || !res.ok) {
+            showStatus("err", (res && res.error) || "Dat lukte niet. Probeer het nog eens.");
+            return api("getData", [TOKEN]).then(function (fresh) {
+              if (fresh && fresh.ok) render(fresh);
+            });
+          }
+          clearStatus();
+          wish.gekochtDoor = res.gekochtDoor;
+          wish.gekochtOp = res.gekochtOp;
+          wish.gekochtDoorMij = true;
+          replaceWish(wrap, wish, ownerName);
+        })
+        .catch(function () {
+          setBusy(button, false, "Ik koop dit");
+          showStatus("err", "Dat lukte niet. Controleer je verbinding en probeer het nog eens.");
+        });
+    }
+
+    function onUnclaim(button, wish, ownerName, wrap) {
+      setBusy(button, true, "Even vrijgeven…");
+      api("unclaim", [TOKEN, wish.id])
+        .then(function (res) {
+          if (!res || !res.ok) {
+            showStatus("err", (res && res.error) || "Dat lukte niet. Probeer het nog eens.");
+            return api("getData", [TOKEN]).then(function (fresh) {
+              if (fresh && fresh.ok) render(fresh);
+            });
+          }
+          clearStatus();
+          wish.gekochtDoor = "";
+          wish.gekochtOp = "";
+          wish.gekochtDoorMij = false;
+          replaceWish(wrap, wish, ownerName);
+        })
+        .catch(function () {
+          setBusy(button, false, "Toch niet, ik geef het vrij");
+          showStatus("err", "Dat lukte niet. Controleer je verbinding en probeer het nog eens.");
+        });
+    }
+
+    els.addForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const text = document.getElementById("wish-text").value;
+      const link = document.getElementById("wish-link").value;
+      const categorie = document.getElementById("wish-cat").value;
+      const opmerking = document.getElementById("wish-note").value;
+      setBusy(els.addBtn, true, "Even bewaren…");
+      api("addWish", [TOKEN, text, link, categorie, opmerking])
+        .then(function (res) {
+          setBusy(els.addBtn, false, "Zet op mijn lijstje");
+          if (!res || !res.ok) {
+            showStatus("err", (res && res.error) || "Dat lukte niet. Probeer het nog eens.");
+            return;
+          }
+          els.addForm.reset();
+          showStatus("ok", "Gelukt! Ik heb “" + escapeText(res.wens) + "” op jouw lijstje gezet. De anderen kunnen het nu zien, jij zelf niet — dat blijft een verrassing.");
+          els.status.scrollIntoView({ behavior: "smooth", block: "start" });
+        })
+        .catch(function () {
+          setBusy(els.addBtn, false, "Zet op mijn lijstje");
+          showStatus("err", "Dat lukte niet. Controleer je verbinding en probeer het nog eens.");
+        });
+    });
+
+    function boot() {
+      if (!TOKEN) {
+        els.greeting.textContent = "Welkom";
+        showStatus("err", "Deze link werkt niet. Vraag Carla om een nieuwe link.");
+        return;
+      }
+      els.greeting.textContent = "Even kijken…";
+      api("getData", [TOKEN])
+        .then(function (data) {
+          if (!data || !data.ok) {
+            els.greeting.textContent = "Welkom";
+            showStatus("err", (data && data.error) || "Deze link werkt niet. Vraag Carla om een nieuwe link.");
+            return;
+          }
+          clearStatus();
+          render(data);
+        })
+        .catch(function () {
+          els.greeting.textContent = "Welkom";
+          showStatus("err", "De lijstjes konden niet geladen worden. Probeer de pagina opnieuw te openen.");
+        });
+    }
+
+    boot();
+  </script>
+</body>
+</html>
